@@ -1,6 +1,6 @@
 import './App.css';
 import Provinces from './composants/Provinces';
-import CreerProvince from './composants/Provinces';
+import CreerProvince from './composants/CreerProvince';
 import EditProvince from './composants/EditProvince'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 
@@ -10,8 +10,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={ <Provinces/>} />
-          <Route path='/create' element={ <CreerProvince/>} />
-          <Route path='/:id' element={ <EditProvince/>} />
+          <Route path='/provinces/create' element={ <CreerProvince/>} />
+          <Route path='/provinces/:id' element={ <EditProvince/>} />
         </Routes>
       </BrowserRouter>
     </div>

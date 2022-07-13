@@ -57,7 +57,7 @@ const Provinces = () => {
     return (
         <div>
             <Grid container>
-                <Link to="/create" variant="contained" color="primary">Create</Link>
+                <Link to="/provinces/create" variant="contained" color="primary">Create</Link>
             </Grid>
             <TableContainer component={Paper}>
                 <Table  className={classes.table} aria-label="customized table">
@@ -78,7 +78,7 @@ const Provinces = () => {
                         <StyledTableCell align="right">{province.libelle_prov}</StyledTableCell>
                         <StyledTableCell align="right">{province.code_prov}</StyledTableCell>
                         <StyledTableCell align="right">
-                            <Link to={`/provinces/${province.id}`} variant="contained" color="primary">Edit</Link>
+                            <Button variant="contained" size="small" color="primary"><Link to={`/provinces/${province.id}`}>Edit</Link></Button>
                             <Button onClick={()=> deleteProvince(province.id)} variant="contained" size="small" color="secondary">Delete</Button>
                         </StyledTableCell>
                         </StyledTableRow>
