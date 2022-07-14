@@ -11,7 +11,7 @@ import Paper from '@material-ui/core/Paper';
 import { Grid,Button } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 
-const url_api =  'http://localhost:8000/api'
+const url_api =  'http://localhost:8000/api/provinces'
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
@@ -45,17 +45,20 @@ const Provinces = () => {
     },[])
 
     const getAllProvinces = async () => {
-        const res = await axios.get(`${url_api}/provinces`)
+        const res = await axios.get(url_api)
         setProvinces(res.data)
     }
     const deleteProvince = async (id) => {
-        await axios.delete(`${url_api}/provinces/${id}`)
+        const res = await axios.delete(`${url_api}/${id}`)
+        if(res.data.message){
+            console.log(res.data.message);
+        }
         getAllProvinces()
     }
     const classes = useStyles();
     
     return (
-        <div>
+        <div className='container'>
             <Grid container>
                 <Link to="/provinces/create" variant="contained" color="primary">Create</Link>
             </Grid>
