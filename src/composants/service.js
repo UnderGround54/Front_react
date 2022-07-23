@@ -1,9 +1,11 @@
-import React from 'react'
-
-function service() {
-  return (
-    <div>button</div>
-  )
+function getApi(){
+  const getPersonne = () => {
+      return fetch("http://localhost:8000/api/",{
+          type: "GET",
+      }).then((res) => res.json());
+  };
+  return {
+      getPersonne,
+  };
 }
-
-export default service
+export default getApi();
